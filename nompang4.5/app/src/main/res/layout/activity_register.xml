@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".registerActivity"
+
+    >
+
+    <ImageView
+        android:id="@+id/applogo_re"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/logo_name" />
+
+    <TextView
+        android:id="@+id/plzregis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="120dp"
+        android:text="สมัครสมาชิก"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/input_user_regis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:hint="username"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="#8ACFCFCF"
+
+
+        />
+
+    <EditText
+        android:id="@+id/input_pass_regis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="#8ACFCFCF"
+
+        />
+
+    <EditText
+        android:id="@+id/input_cpass_regis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:hint="confirm password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="#8ACFCFCF" />
+
+    <EditText
+        android:id="@+id/input_phone_regis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:hint="phone number"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:textColorHint="#8ACFCFCF"
+
+        />
+
+    <EditText
+        android:id="@+id/input_email_regis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textColorHint="#8ACFCFCF"
+
+        />
+
+    <Button
+        android:id="@+id/comfirm_regis"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="169dp"
+
+        android:background="#00FFFFFF"
+        android:padding="20dp"
+        android:text="ยืนยัน"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        app:strokeWidth="5dp" />
+
+    <Button
+        android:id="@+id/backregister"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="1dp"
+
+        android:layout_marginBottom="46dp"
+        android:background="#00FFFFFF"
+        android:padding="20dp"
+        android:text="ย้อนกลับ"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        app:strokeWidth="5dp" />
+
+</RelativeLayout>

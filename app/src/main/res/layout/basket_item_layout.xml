@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/border_basket">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="100dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#7CFF9800"
+            android:outlineAmbientShadowColor="@color/black"
+            >
+
+
+            <TextView
+                android:id="@+id/basket_product_name"
+                android:layout_width="146dp"
+                android:layout_height="62dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="114dp"
+                android:background="@drawable/border_basket"
+                android:fontFamily="@font/fc_galaxy_regular"
+                android:gravity="center"
+                android:text="ขนมปังสังขยา"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/basket_product_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="25dp" />
+
+
+            <Button
+                android:id="@+id/deletebtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="185dp"
+                android:layout_marginTop="135dp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="Delete"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/productAmountBasket"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="270dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/fc_galaxy_regular"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/amountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/fc_galaxy_regular"
+                android:text="จำนวน"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

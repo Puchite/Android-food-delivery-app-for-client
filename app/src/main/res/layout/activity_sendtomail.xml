@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".sendtomail">
+
+    <ImageView
+        android:id="@+id/applogo_email"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/logo_name" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:hint="ใส่อีเมลของคุณ"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/plztype_emeail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/fc_galaxy_regular1"
+        android:text="กรุณาใส่อีเมลของคุณในช่องด้านล่าง"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/comfirm_reset"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="200dp"
+
+        android:background="#00FFFFFF"
+        android:padding="20dp"
+        android:text="ยืนยัน"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="25sp"
+        app:strokeWidth="5dp" />
+
+
+</RelativeLayout>

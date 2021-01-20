@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "382866396349",
+    "firebase_url": "https://nompang-e1254-default-rtdb.firebaseio.com",
+    "project_id": "nompang-e1254",
+    "storage_bucket": "nompang-e1254.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382866396349:android:10a6cc2e9506d220b553d4",
+        "android_client_info": {
+          "package_name": "com.example.nompang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382866396349-dsvcknjmf928pmt5dap2nrfohdbcn2ma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl8UrzEMUThojj6mIVo4uKFPDnHTi5brM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382866396349-dsvcknjmf928pmt5dap2nrfohdbcn2ma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">nompang</string>
+    <string name="register">สมัคร</string>
+    <string name="comfirm">ยืนยัน</string>
+    <string name="backregister">ย้อนกลับ</string>
+    <string name="order">ขนมปังสังขยา</string>
+    <string name="orderdrink">น้ำหวาน</string>
+    <string name="recommend">เมนูแนะนำ</string>
+    <string name="d1"></string>
+    <string name="d2"></string>
+    <string name="d3"></string>
+    <string name="d4"></string>
+    <string name="d5"></string>
+    <string name="d6"></string>
+
+
+
+</resources>

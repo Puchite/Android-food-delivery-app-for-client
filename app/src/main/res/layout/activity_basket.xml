@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Basket_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg"
+    tools:context=".Basket">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_basket_menu"
+        android:layout_width="394dp"
+        android:layout_height="645dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/border_basket"
+        android:scrollbars="vertical"
+
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/Basket"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10sp"
+        android:background="@drawable/border_basket"
+        android:gravity="center"
+        android:text="Basket"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TotalPrice"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:paddingVertical="15dp"
+        android:text="Total Price ="
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/ConfirmedBtn_basket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="10dp"
+        android:text="สั่งซื้อ" />
+
+
+</RelativeLayout>
