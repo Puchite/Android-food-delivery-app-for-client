@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.nompang.models.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -39,7 +40,7 @@ public class registerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
         confirmb = findViewById(R.id.comfirm_regis);
         backregister = findViewById(R.id.backregister);
         InputName = findViewById(R.id.input_user_regis);
@@ -61,6 +62,7 @@ public class registerActivity extends AppCompatActivity {
         confirmb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 CreateAccout();
             }
 
@@ -133,7 +135,23 @@ public class registerActivity extends AppCompatActivity {
         Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!(snapshot.child("Users").child(username).exists())){
+                boolean istrue =false;
+                int state=1;
+                for(DataSnapshot ds:snapshot.child("Users").getChildren()){
+
+                    String arr;
+                    arr =ds.getValue(Users.class).getName();
+
+                    if(arr.equals(username)){
+                        istrue =false;
+                        state =0;
+                    }
+                }
+                if(state ==1){
+                    istrue=true;
+                }
+
+                if(istrue){
                     HashMap<String,Object> userdataMap = new HashMap<>();
                     userdataMap.put("phone",phonenumber);
                     userdataMap.put("name",username);
@@ -151,7 +169,7 @@ public class registerActivity extends AppCompatActivity {
                                         loadingbar.dismiss();
                                     }
                                     else{
-                                        Rootref.child("Users").child(username).updateChildren(userdataMap)
+                                        Rootref.child("Users").child(mAuth.getUid()).updateChildren(userdataMap)
                                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
@@ -176,7 +194,7 @@ public class registerActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(registerActivity.this, "ชื่อ"+username+"มีคนใช้แล้ว", Toast.LENGTH_SHORT).show();
                     loadingbar.dismiss();
-                    Toast.makeText(registerActivity.this, "กรุณาชื่อเอื่น", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registerActivity.this, "กรุณาชื่ออื่น", Toast.LENGTH_SHORT).show();
                 }
             }
 

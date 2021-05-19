@@ -12,19 +12,18 @@ import com.example.nompang.save.ItemClickListner;
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView  productname,ProductAmount;
+    public TextView  productname,ProductAmount,ProductSweet,ProductType;
     public ImageView productimager;
     public ItemClickListner itemClickListener;
     public Button deletebut;
     public CartViewHolder(@NonNull View itemView) {
         super(itemView);
-
         productname = itemView.findViewById(R.id.basket_product_name);
         productimager = itemView.findViewById(R.id.basket_product_image);
         deletebut  = itemView.findViewById(R.id.deletebtn);
         ProductAmount = itemView.findViewById(R.id.productAmountBasket);
-
-
+        ProductSweet = itemView.findViewById(R.id.basket_product_sweet);
+        ProductType = itemView.findViewById(R.id.basket_product_type);
     }
 
     @Override

@@ -5,7 +5,6 @@ import com.example.nompang.models.product;
 
 public class Prevalent {
     public static Users currentonlineUsers;
-    public static Users onlineUsers;
     public static final String Usernamekey = "username";
     public static final String Userpasskey = "userpass";
 

@@ -1,5 +1,6 @@
 package com.example.nompang;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,12 +23,15 @@ import com.example.nompang.save.Productviewholder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.Calendar;
 
 import io.paperdb.Paper;
 
@@ -37,22 +41,19 @@ public class chosedrink_activity extends AppCompatActivity {
     private FloatingActionButton mainButton, editProfileButton, homeButton,logOutbutton,informationButton,cartButton;
     private Animation openFloatAni,closeFloatAni;
     private boolean isOpen;
-
+    private FirebaseAuth mAuth;
     private DatabaseReference ref;
     private  RecyclerView recyclerView1;
-    //    TextView T1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosedrink_activity);
         ref = FirebaseDatabase.getInstance().getReference().child("Product").child("Drinks");
-        //Firebase
         recyclerView1 =findViewById(R.id.recycle_menu);
         recyclerView1.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView1.setLayoutManager(layoutManager);
-
-
+        mAuth = FirebaseAuth.getInstance();
         mainButton = findViewById(R.id.main);
         editProfileButton = findViewById(R.id.editProfile);
         homeButton = findViewById(R.id.home);
@@ -96,6 +97,7 @@ public class chosedrink_activity extends AppCompatActivity {
                 }
             }
         });
+
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +107,6 @@ public class chosedrink_activity extends AppCompatActivity {
         });
 
         logOutbutton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
 
@@ -170,9 +171,9 @@ public class chosedrink_activity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull Productviewholder productviewholder, int i, @NonNull product product) {
 //                        if(product.getStatus().equals("stock")){
                         productviewholder.ProductName.setText(product.getName());
-                        productviewholder.Productdescription.setText("   Description : " + product.getDescription());
-                        productviewholder.Productstatus.setText("Status : " + product.getStatus());
-                        productviewholder.ProductPrice.setText("Price : " + product.getPrice() + " Baht");
+                        productviewholder.Productdescription.setText(" รายละเอียด : " + product.getDescription());
+                        productviewholder.Productstatus.setText("สถานะ : " + product.getStatus());
+                        productviewholder.ProductPrice.setText("ราคา : " + product.getPrice() + " บาท");
 
                         Picasso.get().load(product.getImageuri()).into(productviewholder.ProductImage);
                         productviewholder.ProductImage.setOnClickListener(new View.OnClickListener() {
@@ -180,15 +181,11 @@ public class chosedrink_activity extends AppCompatActivity {
                             public void onClick(View v) {
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
                                         .child("Product").child("Drinks");
-
                                 databaseReference.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         String UID = getRef(i).getKey();
-//                                        int UIDINT = Integer.parseInt(UID);
                                         String STATUS = snapshot.child(UID).child("status").getValue().toString();
-                                        System.out.println(STATUS);
-                                        System.out.println(STATUS == " stock ");
                                         if (STATUS.equals("stock")) {
                                             product pro = snapshot.child(UID).getValue(product.class);
                                             Prevalent.currentProduct = pro;
@@ -196,7 +193,7 @@ public class chosedrink_activity extends AppCompatActivity {
                                             startActivity(it);
                                         } else {
                                             AlertDialog.Builder builder = new AlertDialog.Builder(chosedrink_activity.this);
-                                            builder.setMessage("Out of Stock");
+                                            builder.setMessage("out of stock");
                                             builder.setCancelable(true);
                                             builder.setPositiveButton("ปิด", new DialogInterface.OnClickListener() {
                                                 @Override
@@ -207,8 +204,7 @@ public class chosedrink_activity extends AppCompatActivity {
                                             AlertDialog alertDialog = builder.create();
                                             alertDialog.show();
                                         }
-                                        // By Earthoer
-//                                        UID = String.valueOf(UIDINT+1);
+
                                     }
 
                                     @Override

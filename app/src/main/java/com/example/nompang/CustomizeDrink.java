@@ -28,7 +28,10 @@ import com.example.nompang.models.product;
 import com.example.nompang.save.Productviewholder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,15 +53,16 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
     private String Type;
     public String sweet;
     private ImageView productImage;
-    private TextView productName , productPrice;
+    private TextView productName , productPrice,showVolume;
     private Spinner productSpinner;
     private RadioGroup productRadiogroup ;
+    private FirebaseAuth mAuth;
     private RadioButton productRadioButton1, productRadioButton2 ;
     private EditText productDescription ;
-    private Button productConfirmed;
-    private String amount = "0";
-    private int A = 0;
-    int i = 0;
+    private Button productConfirmed,Volumeup,Volumedown;
+    public String amount = "0";
+    public int A = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,17 +72,28 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
         editProfileButton = findViewById(R.id.editProfile);
         homeButton = findViewById(R.id.home);
         logOutbutton = findViewById(R.id.logOut);
+        Volumeup=findViewById(R.id.Volumeup);
+        Volumedown=findViewById(R.id.Volumedown);
+        showVolume=findViewById(R.id.VolumeP);
         informationButton = findViewById(R.id.information);
         cartButton = findViewById(R.id.cart);
         openFloatAni = AnimationUtils.loadAnimation(CustomizeDrink.this,R.anim.floating_open);
         closeFloatAni = AnimationUtils.loadAnimation(CustomizeDrink.this,R.anim.floating_close);
-
+        productImage = findViewById(R.id.product_image_details);
+        productName = findViewById(R.id.product_name_details);
+        productSpinner = findViewById(R.id.product_spinner);
+        productRadiogroup = findViewById(R.id.product_radioGroup);
+        productDescription = findViewById(R.id.product_description_details);
+        productConfirmed = findViewById(R.id.product_Confirm);
+        productPrice = findViewById(R.id.product_price_details);
+        Sweetness = findViewById(R.id.product_spinner);
+        Type = "เย็น";
         editProfileButton.setVisibility(View.INVISIBLE);
         homeButton.setVisibility(View.INVISIBLE);
         logOutbutton.setVisibility(View.INVISIBLE);
         informationButton.setVisibility(View.INVISIBLE);
         cartButton.setVisibility(View.INVISIBLE);
-
+        mAuth = FirebaseAuth.getInstance();
         Paper.init(this);
         isOpen = false;
 
@@ -114,7 +129,6 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
                 startActivity(goToCartPage);
             }
         });
-
         logOutbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -167,24 +181,6 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        productImage = findViewById(R.id.product_image_details);
-
-        productName = findViewById(R.id.product_name_details);
-
-        productSpinner = findViewById(R.id.product_spinner);
-
-        productRadiogroup = findViewById(R.id.product_radioGroup);
-
-        productDescription = findViewById(R.id.product_description_details);
-
-        productConfirmed = findViewById(R.id.product_Confirm);
-
-        productPrice = findViewById(R.id.product_price_details);
-
-        Sweetness = findViewById(R.id.product_spinner);
-
-        productAmount = findViewById(R.id.numberPicker);
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                 .createFromResource(this, R.array.Sweet
                         , android.R.layout.simple_spinner_item);
@@ -200,7 +196,7 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
                 int cold = productRadiogroup.getCheckedRadioButtonId();
                 productRadioButton1 = findViewById(cold);
                 Type = productRadioButton1.getText().toString();
-                System.out.println(Type);
+
             }
         });
 
@@ -211,14 +207,14 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
                 int hot = productRadiogroup.getCheckedRadioButtonId();
                 productRadioButton2 = findViewById(hot);
                 Type = productRadioButton2.getText().toString();
-                System.out.println(Type);
+
             }
         });
 
         productConfirmed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent IT = new Intent(getApplicationContext(),Basket.class);
+                Intent IT = new Intent(getApplicationContext(),CustomizeDrink.class);
                 if(amount.equals("0"))
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(CustomizeDrink.this);
@@ -236,35 +232,44 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
                     alertDialog.show();
                 }
                 else {
-                    startActivity(IT);
+
+
                     UpData();
+                    Toast.makeText(CustomizeDrink.this, "ใส่ตระกร้าสำเร็จ", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 Prevalent.currentProduct.setName(productName.getText().toString());
-//                System.out.println(Prevalent.currentProduct.getImageuri());
+
             }
         });
 
         Picasso.get().load(Prevalent.currentProduct.getImageuri()).into(productImage);
         productName.setText(Prevalent.currentProduct.getName());
-        productPrice.setText("Price : "+Prevalent.currentProduct.getPrice());
+        productPrice.setText("ราคา : "+Prevalent.currentProduct.getPrice()+" บาท");
 
-        productAmount.setMinValue(0);
-        productAmount.setMaxValue(10);
-        productAmount.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        Volumeup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                if(i == 0){
-                    A = newVal;
+            public void onClick(View v) {
+                if(A>=0&&A<=9){
+                    A+=1;
                     amount=String.valueOf(A);
+                    showVolume.setText(amount);
+                }
+            }
+        });
+        Volumedown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(A<=0){
+                    A=0;
+                    amount=String.valueOf(A);
+                    showVolume.setText(amount);
                 }
                 else{
-                    A = newVal;
-                    amount=String.valueOf(A-1);
-                    if(A == 0){
-                        amount=String.valueOf(10);
-                    }
+                    A-=1;
+                    amount=String.valueOf(A);
+                    showVolume.setText(amount);
                 }
-                i++;
             }
         });
     }
@@ -272,12 +277,9 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
     private void UpData(){
         final DatabaseReference Rootref;
         Rootref = FirebaseDatabase.getInstance().getReference();
-
         Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
                     HashMap<String, Object> userdataMap = new HashMap<>();
                     userdataMap.put("name", productName.getText().toString());
                     userdataMap.put("sweet", sweet);
@@ -286,10 +288,47 @@ public class CustomizeDrink extends AppCompatActivity implements AdapterView.OnI
                     userdataMap.put("price", Prevalent.currentProduct.getPrice().toString());
                     userdataMap.put("imageuri", Prevalent.currentProduct.getImageuri());
                     userdataMap.put("amount", amount);
-                    Rootref.child("Users").child(Prevalent.currentonlineUsers.getName()).child("product")
-                            .child(productName.getText().toString()).updateChildren(userdataMap);
-                    Rootref.child("Orders").child(Prevalent.currentonlineUsers.getName()).child("product")
-                        .child(productName.getText().toString()).updateChildren(userdataMap);
+                    if(!snapshot.child("Users").child(mAuth.getCurrentUser().getUid()).child("product").child(productName.getText().toString()+Type+sweet)
+                        .child("temp").exists()){
+                        userdataMap.put("temp",amount);
+                        Rootref.child("Users").child(mAuth.getCurrentUser().getUid()).child("product")
+                            .child(productName.getText().toString()+Type+sweet).updateChildren(userdataMap);
+                        if(snapshot.child("Orders").child(mAuth.getCurrentUser().getUid()).child("product").child(productName.getText().toString()+Type+
+                            sweet).exists()){
+                            int temp = Integer.parseInt(snapshot.child("Orders").child(mAuth.getCurrentUser().getUid()).
+                                child("product").child(productName.getText().toString()+Type+ sweet).child("amount").getValue().toString());
+                            int ramount = Integer.parseInt(amount)+temp;
+                            HashMap<String,Object> userdata = new HashMap<>();
+                            userdata.put("amount",String.valueOf(ramount));
+                            Rootref.child("Orders").child(mAuth.getCurrentUser().getUid()).child("product")
+                                .child(productName.getText().toString()+Type+sweet).updateChildren(userdata);
+
+                        }
+                        else{
+                            Rootref.child("Orders").child(mAuth.getCurrentUser().getUid()).child("product")
+                                    .child(productName.getText().toString()+Type+sweet).updateChildren(userdataMap);
+                        }
+                    }
+                    else{
+                        String am = String.valueOf(Integer.parseInt(amount)-Integer.parseInt(snapshot.child("Users").child(mAuth.getCurrentUser().getUid()).child("product").
+                                child(productName.getText().toString()+Type+sweet).child("temp").getValue().toString()));
+
+
+                        userdataMap.put("temp",amount);
+                            Rootref.child("Users").child(mAuth.getCurrentUser().getUid()).child("product")
+                                    .child(productName.getText().toString()+Type+sweet).updateChildren(userdataMap);
+                        if(snapshot.child("Orders").child(mAuth.getCurrentUser().getUid()).child("product").child(productName.getText().toString()+Type+
+                            sweet).exists()){
+                            HashMap<String,Object> userdata = new HashMap<>();
+                            int ramount = Integer.parseInt(snapshot.child("Orders").child(mAuth.getCurrentUser().getUid()).
+                                child("product").child(productName.getText().toString()+Type+ sweet).child("amount").getValue().toString())+Integer.parseInt(am);
+                            userdata.put("amount",String.valueOf(ramount));
+                            Rootref.child("Orders").child(mAuth.getCurrentUser().getUid()).child("product")
+                                .child(productName.getText().toString()+Type+sweet).updateChildren(userdata);
+
+                    }
+
+                }
 
             }
             @Override

@@ -27,7 +27,7 @@ public class informationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informarion);
-
+//        getSupportActionBar().hide();
         mainButton = findViewById(R.id.main);
         editProfileButton = findViewById(R.id.editProfile);
         homeButton = findViewById(R.id.home);

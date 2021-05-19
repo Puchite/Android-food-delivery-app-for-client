@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/new_background"
     tools:context=".sendtomail">
 
     <ImageView
         android:id="@+id/applogo_email"
-        android:layout_width="400dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/logo_name" />
+        android:layout_width="394dp"
+        android:layout_height="126dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/logo" />
 
     <EditText
         android:id="@+id/input_email"
@@ -24,6 +24,8 @@
         android:layout_marginRight="25dp"
         android:gravity="center"
         android:hint="ใส่อีเมลของคุณ"
+        android:textSize="25dp"
+        android:fontFamily="@font/fc_galaxy_regular"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
@@ -32,14 +34,13 @@
         android:id="@+id/plztype_emeail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
         android:fontFamily="@font/fc_galaxy_regular1"
         android:text="กรุณาใส่อีเมลของคุณในช่องด้านล่าง"
         android:textAlignment="textStart"
         android:textColor="@color/black"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <Button
@@ -50,14 +51,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="1dp"
         android:layout_marginBottom="200dp"
-
+        android:fontFamily="@font/fc_galaxy_regular"
         android:background="#00FFFFFF"
         android:padding="20dp"
         android:text="ยืนยัน"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="25sp"
+        android:textSize="36sp"
         app:strokeWidth="5dp" />
 
 

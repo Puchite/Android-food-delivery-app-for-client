@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="320dp"
     android:layout_marginTop="20dp"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp"
-    android:background="@drawable/border_basket"
+    android:background="@drawable/choosedrink_background"
     android:elevation="15dp">
 
     <androidx.cardview.widget.CardView
@@ -17,18 +17,21 @@
             android:id="@+id/Layout_Drinks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_basket"
+            android:background="@drawable/choosedrink_background"
+
             >
             <TextView
                 android:id="@+id/product_price"
                 android:layout_width="150dp"
                 android:layout_height="20dp"
-                android:text="Price : "
+                android:text="ราคา : "
+                android:fontFamily="@font/fc_galaxy_regular"
                 android:textStyle="bold"
                 android:layout_marginTop="3dp"
-                android:textSize="18dp"
+                android:textSize="25dp"
                 android:layout_below="@+id/product_image"
-                android:layout_marginLeft="230dp"
+                android:layout_marginLeft="200dp"
+                android:textColor="@color/white"
                 />
 
             <TextView
@@ -37,31 +40,36 @@
                 android:layout_height="wrap_content"
                 android:text="Product Name"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textSize="30dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/fc_galaxy_regular"
                 android:textStyle="bold"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 />
 
             <ImageButton
                 android:id="@+id/product_image"
-                android:layout_width="match_parent"
+                android:layout_width="380dp"
                 android:layout_height="200dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/product_name"
-                android:scaleType="centerCrop"
-                android:layout_marginTop="2dp"
-                />
+                android:layout_marginTop="4dp"
+                android:background="@drawable/choosedrink_background"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/product_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/product_image"
-                android:text="Status :"
+                android:text="สถานะ :"
+                android:fontFamily="@font/fc_galaxy_regular"
                 android:layout_marginTop="2dp"
                 android:layout_marginStart="10dp"
                 android:textAlignment="viewStart"
-                android:textSize="18dp"
-                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                android:textColor="@android:color/white"
                 />
 
             <TextView
@@ -70,9 +78,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/product_status"
                 android:text="Product Description"
-
-                android:textSize="16dp"
-                android:textColor="@android:color/black"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/fc_galaxy_regular"
+                android:textSize="25dp"
+                android:textColor="@android:color/white"
                 />
 
         </RelativeLayout>

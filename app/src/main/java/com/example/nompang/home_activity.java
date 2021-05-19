@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.Process;
+import java.util.Calendar;
 
 import io.paperdb.Paper;
 
@@ -33,8 +34,6 @@ public class home_activity extends AppCompatActivity {
     boolean isOpen;
     private  Toast backtoast;
     Button order,orderdrink,recommend;
-    ImageView image1;
-    int curent_img;
 
     @Override
     public void onBackPressed() {
@@ -55,44 +54,14 @@ public class home_activity extends AppCompatActivity {
         presstime = System.currentTimeMillis();
     }
 
-    //int[] photo =int[R.drawable.coco2,R.drawable.chanom];
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_activity);
-
         order =findViewById(R.id.orders);
         orderdrink=findViewById(R.id.orderdrink);
         recommend=findViewById(R.id.recommend);
-        Paper.init(this);
-
-        order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1=new Intent(getApplicationContext(), chosenompang_activity.class);
-                startActivity(intent1);
-            }
-        });
-        orderdrink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2=new Intent(getApplicationContext(),chosedrink_activity.class);
-                startActivity(intent2);
-            }
-        });
-
-        recommend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent3 = new Intent(getApplicationContext(),ShowRecomActivity.class);
-                startActivity(intent3);
-            }
-        });
-
-//        setonline();
-        //Floating button Action
-
         openFloatAni = AnimationUtils.loadAnimation(home_activity.this,R.anim.floating_open);
         closeFloatAni = AnimationUtils.loadAnimation(home_activity.this,R.anim.floating_close);
 
@@ -108,6 +77,69 @@ public class home_activity extends AppCompatActivity {
         logOutbutton.setVisibility(View.INVISIBLE);
         informationButton.setVisibility(View.INVISIBLE);
         cartButton.setVisibility(View.INVISIBLE);
+
+        Calendar Cal;
+        Cal=Calendar.getInstance();
+        int h;
+        h= Cal.get(Calendar.HOUR_OF_DAY);
+
+        Paper.init(this);
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(h>=0 && h<=24) {
+                    Intent intent1=new Intent(getApplicationContext(), chosenompang_activity.class);
+                    startActivity(intent1);
+                }
+                else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(home_activity.this);
+                    builder.setMessage("Shop close");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("กลับไปหน้าแรก", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
+                }
+            }
+        });
+        orderdrink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(h>=0 && h<=24) {
+                    Intent intent2=new Intent(getApplicationContext(), chosedrink_activity.class);
+                    startActivity(intent2);
+                }
+                else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(home_activity.this);
+                    builder.setMessage("Shop close");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("กลับไปหน้าแรก", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
+                }
+            }
+        });
+
+        recommend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(getApplicationContext(),ShowRecomActivity.class);
+                startActivity(intent3);
+            }
+        });
 
         isOpen = false;
 
@@ -196,21 +228,6 @@ public class home_activity extends AppCompatActivity {
                 startActivity(floatInforMain);
             }
         });
-
-
-
-
-
-
-
-
-
-
     }
-//    private void setonline() {
-//        final DatabaseReference Rootref;
-//        Rootref = FirebaseDatabase.getInstance().getReference();
-//
-//        Rootref.addValueEventListener(new)
-//    }
+
 }

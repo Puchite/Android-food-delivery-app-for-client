@@ -25,7 +25,7 @@ public class ShowRecomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showrecommend);
-
+//        getSupportActionBar().hide();
 
         mainButton = findViewById(R.id.main);
         editProfileButton = findViewById(R.id.editProfile);

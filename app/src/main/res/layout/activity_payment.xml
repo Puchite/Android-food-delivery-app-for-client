@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/new_background"
     tools:context=".paymentActivity">
 
     <TextView
         android:id="@+id/patmentPageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="283dp"
+        android:layout_height="62dp"
+        android:background="@drawable/background_head"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="ช่องทางการชำระเงิน"
+        android:textAlignment="center"
         android:textSize="55sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.06" />
 
     <RadioGroup
         android:id="@+id/radioGroupPayment"
@@ -37,6 +39,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/fc_galaxy_regular"
             android:text="ส่งที่บ้าน"
+            android:layout_marginTop="20dp"
             android:textSize="30sp" />
 
         <RadioButton
@@ -45,6 +48,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/fc_galaxy_regular"
             android:text="รับเอง"
+            android:layout_marginTop="20dp"
             android:textSize="30sp" />
 
     </RadioGroup>
@@ -115,12 +119,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/fc_galaxy_regular"
             android:text="ชำระเงินสด"
+            android:layout_marginLeft="25dp"
             android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radioButtonCash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
             android:fontFamily="@font/fc_galaxy_regular"
             android:text="ชำระผ่านพร้อมเพย์"
             android:textSize="30sp" />
@@ -132,10 +138,10 @@
         android:layout_height="333dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.604"
+        app:layout_constraintVertical_bias="0.625"
         app:srcCompat="@drawable/pp" />
 
     <TextView
@@ -143,7 +149,7 @@
         android:layout_width="299dp"
         android:layout_height="46dp"
         android:fontFamily="@font/fc_galaxy_regular"
-        android:text="ร้าน ขนมปังสังขยา นายสุขเทเวศน์"
+        android:text="   ร้าน ขนมปังสังขยา นายสุขเทเวศน์"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,7 +164,7 @@
         android:layout_width="210dp"
         android:layout_height="44dp"
         android:fontFamily="@font/fc_galaxy_regular"
-        android:text="ชื่อ นายสุขเทเวน์ "
+        android:text="   ชื่อ นายสุขเทเวน์ "
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -297,12 +303,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ยืนยัน"
+        android:textSize="30dp"
+        android:fontFamily="@font/fc_galaxy_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.94" />
+
+    <ImageView
+        android:id="@+id/qrPrompay"
+        android:layout_width="131dp"
+        android:layout_height="141dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.718"
+        app:srcCompat="@drawable/background_white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

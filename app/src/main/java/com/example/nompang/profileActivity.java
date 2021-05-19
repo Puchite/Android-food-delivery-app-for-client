@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,7 +60,7 @@ public class profileActivity extends AppCompatActivity {
     private StorageReference storageProfilepicture;
     private String checker = "";
     private static final int imgrequest = 1;
-
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -74,7 +75,7 @@ public class profileActivity extends AppCompatActivity {
         informationButton = findViewById(R.id.information);
         cartButton = findViewById(R.id.cart);
         Paper.init(this);
-
+        mAuth = FirebaseAuth.getInstance();
         isOpen = false;
         confirmbutton = findViewById(R.id.comfirm);
         changepic = findViewById(R.id.change_pic_pro);
@@ -87,17 +88,7 @@ public class profileActivity extends AppCompatActivity {
         phone.setText(Prevalent.currentonlineUsers.getPhone());
         name.setText(Prevalent.currentonlineUsers.getRealname());
         location.setText(Prevalent.currentonlineUsers.getLocation());
-
-
         picture = findViewById(R.id.cirpic);
-
-        System.out.println(Prevalent.currentonlineUsers.getName());
-        System.out.println(Prevalent.currentonlineUsers.getName());
-        System.out.println(Prevalent.currentonlineUsers.getName());
-        System.out.println(Prevalent.currentonlineUsers.getName());
-        System.out.println(Prevalent.currentonlineUsers.getName());
-        System.out.println(Prevalent.currentonlineUsers.getName());
-
         userprofile(username,name,phone,location,picture);
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,12 +99,22 @@ public class profileActivity extends AppCompatActivity {
         confirmbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checker.equals("clicked")){
-                    userinfosaved();
+                String a =  phone.getText().toString();
+
+                if(a.length()!=10){
+                    Toast.makeText(profileActivity.this, "กรุณากรอกเบอร์ของท่านให้ถูกต้อง", Toast.LENGTH_SHORT).show();
+                }
+                else if(name.getText().toString().length()<5){
+                    Toast.makeText(profileActivity.this, "กรุณากรอกชื่อให้ถูกต้อง", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    updateonlyuserinfo();
+                    if(checker.equals("clicked")){
+                        userinfosaved();
+                    }
+                    else{
+                        updateonlyuserinfo();
 
+                    }
                 }
 
             }
@@ -246,7 +247,10 @@ public class profileActivity extends AppCompatActivity {
         userdataMap.put("realname",name.getText().toString());
         userdataMap.put("location",location.getText().toString());
         userdataMap.put("phone",phone.getText().toString());
-        ref.child(Prevalent.currentonlineUsers.getName()).updateChildren(userdataMap);
+        Prevalent.currentonlineUsers.setRealname(name.getText().toString());
+        Prevalent.currentonlineUsers.setLocation(location.getText().toString());
+        Prevalent.currentonlineUsers.setPhone(phone.getText().toString());
+        ref.child(mAuth.getCurrentUser().getUid()).updateChildren(userdataMap);
 
         Prevalent.currentonlineUsers.setRealname(name.getText().toString());
         Prevalent.currentonlineUsers.setLocation(location.getText().toString());
@@ -284,10 +288,8 @@ public class profileActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         if(imageuri != null){
-
             final StorageReference fileRef = storageProfilepicture
-                    .child(Prevalent.currentonlineUsers.getName() +".jpg");
-
+                    .child(mAuth.getCurrentUser().getUid()+".jpg");
             uploadtask = fileRef.putFile(imageuri);
             uploadtask.continueWithTask(new Continuation() {
                 @Override
@@ -303,7 +305,6 @@ public class profileActivity extends AppCompatActivity {
             .addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
-                    Toast.makeText(profileActivity.this, imageuri.toString(), Toast.LENGTH_SHORT).show();
                     if(task.isSuccessful()){
                         Uri downloaduri = task.getResult();
                         myuri = downloaduri.toString();
@@ -314,11 +315,7 @@ public class profileActivity extends AppCompatActivity {
                         userdataMap.put("location",location.getText().toString());
                         userdataMap.put("phone",phone.getText().toString());
                         userdataMap.put("image",myuri);
-                        ref.child(Prevalent.currentonlineUsers.getName()).updateChildren(userdataMap);
-
-
-
-
+                        ref.child(mAuth.getCurrentUser().getUid()).updateChildren(userdataMap);
                         progressDialog.dismiss();
 
                         startActivity(new Intent(profileActivity.this,home_activity.class));
@@ -328,7 +325,8 @@ public class profileActivity extends AppCompatActivity {
                     else{
 
                         progressDialog.dismiss();
-                        Toast.makeText(profileActivity.this, "error", Toast.LENGTH_SHORT).show();
+                        String message = task.getException().getMessage();
+                        Toast.makeText(profileActivity.this, "error "+message, Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -341,7 +339,7 @@ public class profileActivity extends AppCompatActivity {
     }
 
     private void userprofile(TextView username, EditText name, EditText phone, EditText location,CircleImageView picture) {
-        DatabaseReference  UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentonlineUsers.getName());
+        DatabaseReference  UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
         UserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -349,9 +347,10 @@ public class profileActivity extends AppCompatActivity {
                     if(snapshot.child("image").exists()){
                         String image = snapshot.child("image").getValue().toString();
                         String realname = snapshot.child("realname").getValue().toString();
-
                         String locationt = snapshot.child("location").getValue().toString();
-
+                        Prevalent.currentonlineUsers.setRealname(name.getText().toString());
+                        Prevalent.currentonlineUsers.setLocation(location.getText().toString());
+                        Prevalent.currentonlineUsers.setPhone(phone.getText().toString());
                         Picasso.get().load(image).into(picture);
                         name.setText(realname);
                         location.setText(locationt);

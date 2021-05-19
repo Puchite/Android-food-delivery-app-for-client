@@ -5,33 +5,31 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-
+    android:background="@drawable/new_background"
     >
-
 
     <ImageView
         android:id="@+id/applogo"
-        android:layout_width="400dp"
-        android:layout_height="70dp"
+        android:layout_width="347dp"
+        android:layout_height="133dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/logo_name" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-13dp"
+        android:layout_marginEnd="0dp"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/plzlogin"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/applogo"
 
-        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="62dp"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="62dp"
         android:fontFamily="@font/fc_galaxy_regular1"
         android:text="ลงชื่อเข้าใช้"
@@ -44,23 +42,23 @@
         android:id="@+id/forgotpsw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/input_password"
         android:layout_marginLeft="270dp"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/fc_galaxy_regular1"
         android:text="ลืมรหัสผ่าน"
-        android:textColor="@color/black"
 
+        android:textColor="@color/black"
         android:textSize="30sp" />
 
     <Button
         android:id="@+id/comfirm"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/input_password"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="1dp"
-        android:layout_marginBottom="155dp"
-
+        android:layout_marginTop="100dp"
         android:background="#00FFFFFF"
         android:fontFamily="@font/fc_galaxy_regular"
         android:padding="20dp"
@@ -68,65 +66,68 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="36sp"
+        android:textSize="36dp"
         app:strokeWidth="5dp" />
 
     <Button
         android:id="@+id/register"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
+
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/comfirm"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="1dp"
-        android:layout_marginBottom="35dp"
-
+        android:layout_marginTop="20dp"
         android:background="#00FFFFFF"
         android:fontFamily="@font/fc_galaxy_regular"
         android:padding="20dp"
         android:text="ลงทะเบียน"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="36sp"
-        app:strokeColor="#FFFFFF"
+        android:textSize="36dp"
         app:strokeWidth="5dp" />
 
     <EditText
         android:id="@+id/input_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/plzlogin"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="70dp"
         android:layout_marginRight="25dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:hint="username"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
+        android:fontFamily="@font/fc_galaxy_regular"
 
+        android:gravity="center"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+
+        android:textColor="@color/black"
         android:textColorHint="#88000000"
-        android:textSize="24sp" />
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/input_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/input_user"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="25dp"
         android:ems="10"
+        android:fontFamily="@font/fc_galaxy_regular"
         android:gravity="center"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="#88000000"
-        android:textSize="24sp" />
+        android:textSize="25dp" />
 
     <LinearLayout
         android:id="@+id/linear_layout1"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/input_password"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal">
 
         <CheckBox
@@ -134,7 +135,7 @@
             style="@style/Material.Drawable.CheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
 
             android:fontFamily="@font/fc_galaxy_regular"
             android:gravity="center_vertical"

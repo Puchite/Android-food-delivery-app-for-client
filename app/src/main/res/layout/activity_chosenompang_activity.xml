@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/new_background"
     tools:context=".chosenompang_activity"
     >
 
@@ -12,6 +12,8 @@
         android:id="@+id/rg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.805"
@@ -52,22 +54,25 @@
         android:id="@+id/image2"
         android:layout_width="187dp"
         android:layout_height="178dp"
+        android:layout_marginLeft="20dp"
         android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698"
+        app:layout_constraintVertical_bias="0.675"
         app:srcCompat="@drawable/plate" />
 
     <TextView
         android:id="@+id/showt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttons"
+        android:layout_width="166dp"
+        android:layout_height="50dp"
+        android:background="@drawable/background_head"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="ขนมปังสังขยา"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp"
         android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -82,6 +87,7 @@
         android:id="@+id/image1"
         android:layout_width="187dp"
         android:layout_height="178dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -94,6 +100,7 @@
         android:id="@+id/rg2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.805"
@@ -139,7 +146,6 @@
         android:text="รายละเอียด"
         android:textColor="@color/black"
         android:textSize="36sp"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -162,10 +168,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.832" />
+        app:layout_constraintVertical_bias="0.771" />
 
     <Button
         android:id="@+id/button"
@@ -177,10 +183,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintVertical_bias="0.95" />
 
     <Button
         android:id="@+id/button2"
@@ -199,34 +205,10 @@
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
-
-    <NumberPicker
-        android:id="@+id/N1"
-        android:layout_width="59dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
-
-    <NumberPicker
-        android:id="@+id/N2"
-        android:layout_width="67dp"
-        android:layout_height="39dp"
-        android:fontFamily="@font/fc_galaxy_regular"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.877" />
+        app:layout_constraintVertical_bias="0.95" />
 
     <TextView
         android:id="@+id/priceNom"
@@ -239,10 +221,22 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372" />
+        app:layout_constraintVertical_bias="0.376" />
+
+    <Button
+        android:id="@+id/Increase2"
+        android:layout_width="59dp"
+        android:layout_height="36dp"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871" />
 
     <TextView
         android:id="@+id/valueOfProduct"
@@ -254,55 +248,55 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintVertical_bias="0.439" />
 
     <TextView
         android:id="@+id/valueOfProduct2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/fc_galaxy_regular"
-        android:text="จำนวน"
+        android:text="จำนวน(ชุด)"
         android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.877" />
-
-   
+        app:layout_constraintVertical_bias="0.823" />
 
     <EditText
         android:id="@+id/comment1"
         android:layout_width="150dp"
         android:layout_height="75dp"
-        android:background="@drawable/border_basket"
+        android:background="@drawable/background_des"
+        android:fontFamily="@font/fc_galaxy_regular"
         android:gravity="center"
         android:hint="ใส่รายละเอียด"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.872"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414" />
+        app:layout_constraintVertical_bias="0.394" />
 
     <EditText
         android:id="@+id/comment2"
         android:layout_width="146dp"
         android:layout_height="79dp"
-        android:background="@drawable/border_basket"
+        android:background="@drawable/background_des"
+        android:fontFamily="@font/fc_galaxy_regular"
         android:gravity="center"
         android:hint="ใส่รายละเอียด"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848" />
+        app:layout_constraintVertical_bias="0.802" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/logOut"
@@ -427,5 +421,71 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.834"
         app:srcCompat="@drawable/shopping_basket" />
+
+    <Button
+        android:id="@+id/Increase"
+        android:layout_width="59dp"
+        android:layout_height="36dp"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Reduce"
+        android:layout_width="59dp"
+        android:layout_height="36dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Reduce2"
+        android:layout_width="59dp"
+        android:layout_height="36dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871" />
+
+    <TextView
+        android:id="@+id/Amount1"
+        android:layout_width="65dp"
+        android:layout_height="29dp"
+        android:fontFamily="@font/fc_galaxy_regular"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433" />
+
+    <TextView
+        android:id="@+id/Amount2"
+        android:layout_width="65dp"
+        android:layout_height="29dp"
+        android:fontFamily="@font/fc_galaxy_regular"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

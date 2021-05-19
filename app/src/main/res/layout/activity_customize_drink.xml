@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/new_background"
     tools:context=".CustomizeDrink">
 
     <ImageView
         android:id="@+id/product_image_details"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="321dp"
+        android:layout_height="184dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="30dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,14 +23,17 @@
 
     <TextView
         android:id="@+id/product_name_details"
-        android:layout_width="388dp"
+        android:layout_width="330dp"
         android:layout_height="42dp"
-        android:background="@drawable/border_basket"
+        android:background="@drawable/background_head"
         android:fontFamily="@font/fc_galaxy_regular"
         android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="13dp"
         android:text="ชื่อสินค้า"
+        android:textAlignment="gravity"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,36 +43,27 @@
         app:layout_constraintVertical_bias="0.019" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="60dp"
-        android:layout_height="20dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/product_price_details"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="295dp"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="จำนวน :"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <NumberPicker
-        android:id="@+id/numberPicker"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/product_price_details"
-        android:background="@drawable/border_basket"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
 
     <TextView
         android:id="@+id/product_price_details"
         android:layout_width="155dp"
         android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
         android:layout_below="@+id/product_image_details"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="ราคา : "
@@ -87,6 +83,8 @@
         android:layout_below="@+id/product_image_details"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="ความหวาน : "
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -100,9 +98,10 @@
     <Spinner
         android:id="@+id/product_spinner"
         android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@id/product_image_details"
-        android:background="@drawable/border_basket"
+        android:background="#CFC2C2"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +115,9 @@
         android:layout_height="35dp"
         android:layout_below="@+id/product_spinner"
         android:fontFamily="@font/fc_galaxy_regular"
-        android:text="Type of Drinks : "
+        android:text="ประเภทเครื่องดื่ม : "
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -131,8 +132,10 @@
         android:id="@+id/product_radioGroup"
         android:layout_width="206dp"
         android:layout_height="64dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@id/product_spinner"
         android:orientation="horizontal"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.862"
@@ -166,6 +169,8 @@
         android:layout_below="@+id/product_radioGroup"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="เพิ่มเติม : "
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -180,10 +185,12 @@
         android:id="@+id/product_description_details"
         android:layout_width="300dp"
         android:layout_height="150dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/Suggestion_Text"
-        android:background="@drawable/border_basket"
+        android:background="@drawable/background_des"
         android:fontFamily="@font/fc_galaxy_regular"
         android:hint="คำแนะนำเพิ่มเติม"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -199,11 +206,13 @@
         android:layout_below="@id/product_description_details"
         android:layout_centerInParent="true"
         android:text="ยืนยัน"
+        android:textSize="30dp"
+        android:fontFamily="@font/fc_galaxy_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintVertical_bias="0.946" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/logOut"
@@ -328,5 +337,43 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.834"
         app:srcCompat="@drawable/shopping_basket" />
+
+    <TextView
+        android:id="@+id/VolumeP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.416" />
+
+    <Button
+        android:id="@+id/Volumeup"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+    <Button
+        android:id="@+id/Volumedown"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/new_background"
     tools:context=".informationActivity">
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="ขนมปังสังขยา นายสุขเทเวศร์"
+        android:textColor="@color/black"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,9 +26,11 @@
         android:id="@+id/openHour"
         android:layout_width="219dp"
         android:layout_height="48dp"
+        android:textColor="@color/black"
         android:fontFamily="@font/fc_galaxy_italic"
+
         android:text="เวลาเปิด 17.00 - 22.00"
-        android:textSize="36sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.544"
@@ -40,8 +43,9 @@
         android:layout_width="321dp"
         android:layout_height="113dp"
         android:fontFamily="@font/fc_galaxy_regular"
+        android:textColor="@color/black"
         android:text="ที่อยู่ร้าน 7 ถนน ลูกหลวง แขวง ดุสิต เขตดุสิต กรุงเทพมหานคร ประเทศไทย 10300 กรุงเทพมหานคร (ถนนลูกหลวงใกล้กับธนาคารไทยพาณิชย์)"
-        android:textSize="28sp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.621"
@@ -55,7 +59,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="เบอร์ 061-625-1492"
-        android:textSize="36sp"
+        android:textSize="35sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -86,6 +91,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="@+id/imageView"
+        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.669" />
 
@@ -96,6 +102,7 @@
         android:fontFamily="@font/fc_galaxy_regular"
         android:text="FB:Kanompang 555"
         android:textSize="24sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.47"
