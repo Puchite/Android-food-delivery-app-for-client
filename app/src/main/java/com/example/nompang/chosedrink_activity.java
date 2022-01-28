@@ -119,7 +119,7 @@ public class chosedrink_activity extends AppCompatActivity {
                         Intent logout = new Intent(getApplicationContext(),MainActivity.class);
                         Paper.book().destroy();
                         startActivities(new Intent[]{logout});
-                        Toast.makeText(chosedrink_activity.this, "ออกจากระบบสำเร็จ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(chosedrink_activity.this, " ออกจากระบบสำเร็จ ", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -172,8 +172,8 @@ public class chosedrink_activity extends AppCompatActivity {
 //                        if(product.getStatus().equals("stock")){
                         productviewholder.ProductName.setText(product.getName());
                         productviewholder.Productdescription.setText(" รายละเอียด : " + product.getDescription());
-                        productviewholder.Productstatus.setText("สถานะ : " + product.getStatus());
-                        productviewholder.ProductPrice.setText("ราคา : " + product.getPrice() + " บาท");
+                        productviewholder.Productstatus.setText(" สถานะ : " + product.getStatus());
+                        productviewholder.ProductPrice.setText(" ราคา : " + product.getPrice() + " บาท ");
 
                         Picasso.get().load(product.getImageuri()).into(productviewholder.ProductImage);
                         productviewholder.ProductImage.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +195,7 @@ public class chosedrink_activity extends AppCompatActivity {
                                             AlertDialog.Builder builder = new AlertDialog.Builder(chosedrink_activity.this);
                                             builder.setMessage("out of stock");
                                             builder.setCancelable(true);
-                                            builder.setPositiveButton("ปิด", new DialogInterface.OnClickListener() {
+                                            builder.setPositiveButton(" ปิด ", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     dialog.cancel();
