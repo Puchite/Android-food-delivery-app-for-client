@@ -1,6 +1,8 @@
 # nompangFINAL
 android_food_delivery_th_example
 
+project android application พัฒนาโดยใช้ภาษา java และใช้ firebase เป็น database
+
 โปรเจคดังกล่าวเป็นส่วนหนึ่งของวิชา 040613241 SYSTEM ANALYSIS AND DESIGN ปีที่ 2 เทอมที่ 2 ปีการศึกษา 2563 มหาวิทยาลัยพระจอมเกล้าพระนครเหนือ <br/>
 จัดทำโดย <br/>
 นายชีวเทพ เทศทองลา 	รหัสนักศึกษา 6204062616049 <br/>
